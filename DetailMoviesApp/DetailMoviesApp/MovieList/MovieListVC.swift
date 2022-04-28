@@ -29,5 +29,13 @@ extension MovieListVC {
         <#code#>
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return NSLocalizedString("Movies", comment: "")
+    }
+    
 }
 
