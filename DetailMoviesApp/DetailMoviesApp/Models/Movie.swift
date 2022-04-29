@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Movies: Codable {
+    var filmPoster: String
+    var title: String
+    var filmDescription: String
+    var voteAverage: String
+}
