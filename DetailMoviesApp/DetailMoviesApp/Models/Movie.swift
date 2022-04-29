@@ -8,8 +8,9 @@
 import Foundation
 
 struct Movies: Codable {
-    var filmPoster: String
+    var poster_path: String
     var title: String
-    var filmDescription: String
-    var voteAverage: String
+    var overview: String
+    var vote_average: Int
+    var total_pages: Int
 }
