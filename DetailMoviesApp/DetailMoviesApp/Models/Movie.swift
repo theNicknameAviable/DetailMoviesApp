@@ -14,3 +14,8 @@ struct Movies: Codable {
     var vote_average: Int
     var total_pages: Int
 }
+
+struct MoviesResponse: Decodable {
+    let page: Int
+    let results: [Movies]
+}
