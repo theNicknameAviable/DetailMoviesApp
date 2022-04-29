@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class ViewModelMovieList {
+    
+    var movieList: [Movies] = []
+}

@@ -19,6 +19,7 @@
 		4F228BAA281B17DC0032E543 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F228BA9281B17DC0032E543 /* DetailVM.swift */; };
 		4F6CB925281C39A600EC80AB /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CB924281C39A600EC80AB /* MovieCell.swift */; };
 		4F6CB927281C39B700EC80AB /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6CB926281C39B700EC80AB /* MovieCell.xib */; };
+		4F6CB92A281C467100EC80AB /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CB929281C467100EC80AB /* NetworkWorker.swift */; };
 		B9E10E7F0FA96D2A2AB026E9 /* Pods_DetailMoviesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002B1C397D45B3F0540BEF29 /* Pods_DetailMoviesApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		4F228BA9281B17DC0032E543 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
 		4F6CB924281C39A600EC80AB /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		4F6CB926281C39B700EC80AB /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		4F6CB929281C467100EC80AB /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				4F228BA8281B17C10032E543 /* DetailList */,
 				4F228BA1281B16610032E543 /* MovieList */,
 				4F228BAB281B182E0032E543 /* Models */,
+				4F6CB92B281C469A00EC80AB /* NetworkWorker */,
 				4F228B93281B12EE0032E543 /* Main.storyboard */,
 				4F228B96281B12F00032E543 /* Assets.xcassets */,
 				4F228B98281B12F00032E543 /* LaunchScreen.storyboard */,
@@ -130,6 +133,14 @@
 				4F6CB926281C39B700EC80AB /* MovieCell.xib */,
 			);
 			path = SubviewMovies;
+			sourceTree = "<group>";
+		};
+		4F6CB92B281C469A00EC80AB /* NetworkWorker */ = {
+			isa = PBXGroup;
+			children = (
+				4F6CB929281C467100EC80AB /* NetworkWorker.swift */,
+			);
+			path = NetworkWorker;
 			sourceTree = "<group>";
 		};
 		90CB240FD6615A6B67060DAD /* Pods */ = {
@@ -262,6 +273,7 @@
 				4F6CB925281C39A600EC80AB /* MovieCell.swift in Sources */,
 				4F228B90281B12EE0032E543 /* SceneDelegate.swift in Sources */,
 				4F228BAA281B17DC0032E543 /* DetailVM.swift in Sources */,
+				4F6CB92A281C467100EC80AB /* NetworkWorker.swift in Sources */,
 				4F228BA3281B16960032E543 /* MovieListVM.swift in Sources */,
 				4F228BA5281B16A50032E543 /* Movie.swift in Sources */,
 				4F228BA7281B17B90032E543 /* DetailVC.swift in Sources */,
