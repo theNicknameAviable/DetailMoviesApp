@@ -22,11 +22,16 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 extension MovieListVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
+    }
+    
+    func registerTableViewCells() {
+        let textFieldCell = UINib(nibName: "MovieCell", bundle: nil)
+        movieTable.register(textFieldCell, forCellReuseIdentifier: "MovieCell")
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
