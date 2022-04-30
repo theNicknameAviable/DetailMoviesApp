@@ -64,6 +64,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="filmDescriptiom" destination="nVn-3W-Yh5" id="UpU-OS-8LJ"/>
+                <outlet property="filmDescription" destination="nVn-3W-Yh5" id="gbw-F3-ffg"/>
                 <outlet property="filmPoster" destination="O9F-Jw-Si3" id="fy3-Q5-TlD"/>
                 <outlet property="title" destination="zAv-kg-nu6" id="fTg-aK-O5O"/>
                 <outlet property="voteAverage" destination="cLy-vg-ho8" id="8fT-eV-ddA"/>

@@ -10,6 +10,7 @@ import UIKit
 class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var movieTable: UITableView!
+    let viewModel = ViewModelMovieList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 extension MovieListVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return viewModel.movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
