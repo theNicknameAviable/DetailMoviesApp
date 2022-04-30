@@ -11,8 +11,16 @@ class ViewModelMovieList {
     
     var movieList: [Movies] = []
     let networker: NetworkWorker
+    var updateList: (() -> Void)?
     
     init (networker: NetworkWorker = NetworkWorker()){
         self.networker = networker
+    }
+    
+    func receiveMovies() {
+        networker.request { movieList in
+            self.movieList = movieList
+            self.updateList?()
+        }
     }
 }
