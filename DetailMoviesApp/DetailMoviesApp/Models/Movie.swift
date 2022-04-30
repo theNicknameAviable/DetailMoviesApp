@@ -13,6 +13,7 @@ struct Movies: Codable {
     var overview: String
     var vote_average: Int
     var total_pages: Int
+    var query: String
 }
 
 struct MoviesResponse: Decodable {
