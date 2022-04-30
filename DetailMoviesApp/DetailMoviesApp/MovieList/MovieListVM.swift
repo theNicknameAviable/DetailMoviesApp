@@ -10,4 +10,9 @@ import Foundation
 class ViewModelMovieList {
     
     var movieList: [Movies] = []
+    let networker: NetworkWorker
+    
+    init (networker: NetworkWorker = NetworkWorker()){
+        self.networker = networker
+    }
 }
