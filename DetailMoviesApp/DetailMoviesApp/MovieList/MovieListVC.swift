@@ -64,7 +64,7 @@ extension MovieListVC {
 extension MovieListVC {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
+        viewModel.searchMovie(query: searchText)
     }
     
 }
