@@ -27,4 +27,10 @@ class ViewModelMovieList {
             self.updateList?()
         }
     }
+    
+    func searchMoviw(query: String){
+        networker.searchMovie(query: query) { results in
+            
+        }
+    }
 }

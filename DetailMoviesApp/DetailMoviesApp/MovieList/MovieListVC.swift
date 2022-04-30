@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var movieTable: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = ViewModelMovieList()
 
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         movieTable.dataSource = self
         movieTable.delegate = self
         movieTable.estimatedRowHeight = 120
+        searchBar.delegate = self
         viewModel.loadMovies()
         viewModel.updateList = {
             self.movieTable.reloadData()
@@ -53,6 +55,16 @@ extension MovieListVC {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return NSLocalizedString("Movies", comment: "")
+    }
+    
+}
+
+//MARK: - SearchBar Methods
+
+extension MovieListVC {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        <#code#>
     }
     
 }

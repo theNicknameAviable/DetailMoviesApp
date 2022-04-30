@@ -42,6 +42,7 @@
                     </view>
                     <connections>
                         <outlet property="movieTable" destination="PCU-U5-Hgx" id="gr5-SJ-By8"/>
+                        <outlet property="searchBar" destination="i8K-DD-AwS" id="p1R-B6-ajn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
