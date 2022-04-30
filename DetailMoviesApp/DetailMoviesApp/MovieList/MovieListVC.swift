@@ -18,6 +18,9 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         movieTable.dataSource = self
         movieTable.delegate = self
         movieTable.estimatedRowHeight = 120
+        viewModel.updateList = {
+            self.movieTable.reloadData()
+        }
     }
 }
 
