@@ -17,6 +17,10 @@ class ViewModelMovieList {
         self.networker = networker
     }
     
+    func loadMovies() {
+        receiveMovies()
+    }
+    
     func receiveMovies() {
         networker.request { movieList in
             self.movieList = movieList
