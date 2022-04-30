@@ -30,7 +30,8 @@ class ViewModelMovieList {
     
     func searchMovie(query: String){
         networker.searchMovie(query: query) { results in
-            
+            self.movieList = results
+            self.updateList?()
         }
     }
 }
