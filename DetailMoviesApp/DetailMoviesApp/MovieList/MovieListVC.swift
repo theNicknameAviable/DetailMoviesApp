@@ -12,6 +12,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var movieTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = ViewModelMovieList()
+    var response = Movies.self
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,5 +68,19 @@ extension MovieListVC {
         viewModel.searchMovie(query: searchText)
     }
     
+}
+
+// MARK: - Movie Detail - Detail List VC
+
+extension MovieListVC {
+    
+    func showMovieDetail() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailViewController = storyboard.instantiateViewController(identifier: "DetailVC") as? DetailListVC else {return}
+        detailViewController.titleMovie = response.title
+        detailViewController.overview = response.overview
+        detailViewController.vote_average =  response.vote_average
+        present(detailViewController, animated: true, completion: nil)
+    }
 }
 

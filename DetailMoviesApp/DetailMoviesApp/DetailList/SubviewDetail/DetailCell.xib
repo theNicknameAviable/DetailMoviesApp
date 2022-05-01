@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="Blz-99-IpJ" customClass="DetailCell" customModule="DetailMoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Blz-99-IpJ" id="CM9-Bh-gDJ">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-CQ-4kF">
+                        <rect key="frame" x="15" y="15" width="390" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="bwo-d8-OT3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPK-a2-0H1">
+                        <rect key="frame" x="15" y="50" width="390" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="HOr-YP-G5o"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="X1w-CQ-4kF" secondAttribute="trailing" constant="15" id="6Mp-8L-M1t"/>
+                    <constraint firstAttribute="trailing" secondItem="ZPK-a2-0H1" secondAttribute="trailing" constant="15" id="SJQ-dk-dUa"/>
+                    <constraint firstItem="X1w-CQ-4kF" firstAttribute="top" secondItem="CM9-Bh-gDJ" secondAttribute="top" constant="15" id="UiI-AZ-eCz"/>
+                    <constraint firstItem="ZPK-a2-0H1" firstAttribute="leading" secondItem="CM9-Bh-gDJ" secondAttribute="leading" constant="15" id="dcV-Ey-Zof"/>
+                    <constraint firstItem="X1w-CQ-4kF" firstAttribute="leading" secondItem="CM9-Bh-gDJ" secondAttribute="leading" constant="15" id="iJ5-Nv-xGQ"/>
+                    <constraint firstAttribute="bottom" secondItem="ZPK-a2-0H1" secondAttribute="bottom" constant="10" id="oH1-Og-HR7"/>
+                    <constraint firstItem="ZPK-a2-0H1" firstAttribute="top" secondItem="X1w-CQ-4kF" secondAttribute="bottom" constant="10" id="qPG-aK-JI9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLabel" destination="ZPK-a2-0H1" id="liV-63-lN9"/>
+                <outlet property="titleLabel" destination="X1w-CQ-4kF" id="rKA-kx-zjS"/>
+            </connections>
+            <point key="canvasLocation" x="-207.24637681159422" y="135.9375"/>
+        </tableViewCell>
+    </objects>
+</document>
