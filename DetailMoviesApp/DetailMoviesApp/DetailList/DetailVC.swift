@@ -7,8 +7,11 @@
 
 import UIKit
 
-class DetailListaVC: UIViewController {
-
+class DetailListVC: UIViewController {
+    
+    
+    @IBOutlet weak var detailTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

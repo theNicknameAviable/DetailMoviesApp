@@ -49,6 +49,36 @@
             </objects>
             <point key="canvasLocation" x="-14.492753623188406" y="138.61607142857142"/>
         </scene>
+        <!--Detail ListVC-->
+        <scene sceneID="hdt-mN-MX5">
+            <objects>
+                <viewController id="p8i-OA-MDI" customClass="DetailListVC" customModule="DetailMoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="18D-6M-cP6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-aT-XLu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZFl-rI-MtT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZFl-rI-MtT" firstAttribute="trailing" secondItem="bfl-aT-XLu" secondAttribute="trailing" id="0kH-jl-Xfr"/>
+                            <constraint firstItem="bfl-aT-XLu" firstAttribute="leading" secondItem="ZFl-rI-MtT" secondAttribute="leading" id="Mdm-7x-7QC"/>
+                            <constraint firstItem="bfl-aT-XLu" firstAttribute="top" secondItem="ZFl-rI-MtT" secondAttribute="top" id="msk-fW-RJT"/>
+                            <constraint firstItem="ZFl-rI-MtT" firstAttribute="bottom" secondItem="bfl-aT-XLu" secondAttribute="bottom" id="t65-5c-bqU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailTable" destination="bfl-aT-XLu" id="ouV-Gu-85I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdE-vL-Q9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="139"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
