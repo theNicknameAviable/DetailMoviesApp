@@ -36,7 +36,7 @@ extension DetailListVC {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +53,7 @@ extension DetailListVC {
                 cell?.detailLabel.text = self.vote_average ?? "Not Available"
             default: break
             }
-            return cell!
+            return cell ?? UITableViewCell()
     }
     
     func registerTableViewCells() {

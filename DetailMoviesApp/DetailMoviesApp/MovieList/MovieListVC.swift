@@ -12,7 +12,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var movieTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = ViewModelMovieList()
-    var response = Movies.self
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         movieTable.delegate = self
         movieTable.estimatedRowHeight = 120
         searchBar.delegate = self
-        viewModel.loadMovies()
         viewModel.updateList = {
             self.movieTable.reloadData()
         }
@@ -42,7 +41,7 @@ extension MovieListVC {
         //cell?.filmPoster.image = UIImage
         cell?.filmDescription.text = "\(viewModel.movieList[indexPath.row].overview)"
         cell?.voteAverage.text = "\(viewModel.movieList[indexPath.row].vote_average)"
-        return UITableViewCell()
+        return cell ?? UITableViewCell()
     }
     
     func registerTableViewCells() {
