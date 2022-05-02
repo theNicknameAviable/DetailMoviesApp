@@ -14,15 +14,6 @@ struct Movies: Codable {
     var vote_average: Int
     var total_pages: Int
     var query: String
-    
-    init(poster_path: String?, title: String? = nil, overview: String? = nil, vote_average: Int? = nil, total_pages: Int? = nil, query: String? = nil) {
-        self.poster_path = poster_path!
-        self.title = title!
-        self.overview = overview!
-        self.vote_average = vote_average!
-        self.total_pages = total_pages!
-        self.query = query!
-    }
 }
 
 struct MoviesResponse: Decodable {

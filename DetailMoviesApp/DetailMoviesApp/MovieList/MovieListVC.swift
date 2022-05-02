@@ -57,6 +57,12 @@ extension MovieListVC {
         return NSLocalizedString("Movies", comment: "")
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let film = viewModel.movieList[indexPath.row]
+        showMovieDetail(film: film)
+    }
+    
 }
 
 //MARK: - SearchBar Methods
@@ -73,12 +79,12 @@ extension MovieListVC {
 
 extension MovieListVC {
     
-    func showMovieDetail() {
+    func showMovieDetail(film : Movies) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let detailViewController = storyboard.instantiateViewController(identifier: "DetailVC") as? DetailListVC else {return}
-        detailViewController.titleMovie = response.title
-        detailViewController.overview = response.overview
-        detailViewController.vote_average =  response.vote_average
+        detailViewController.titleMovie = film.title
+        detailViewController.overview = film.overview
+        detailViewController.vote_average = "\(film.vote_average)"
         present(detailViewController, animated: true, completion: nil)
     }
 }
