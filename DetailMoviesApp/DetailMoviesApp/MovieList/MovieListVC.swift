@@ -19,7 +19,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         registerTableViewCells()
         movieTable.dataSource = self
         movieTable.delegate = self
-        movieTable.estimatedRowHeight = 120
+        movieTable.estimatedRowHeight = 131
         searchBar.delegate = self
         viewModel.updateList = {
             self.movieTable.reloadData()
@@ -72,7 +72,6 @@ extension MovieListVC {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchMovie(query: searchText)
     }
-    
 }
 
 // MARK: - Movie Detail - Detail List VC
