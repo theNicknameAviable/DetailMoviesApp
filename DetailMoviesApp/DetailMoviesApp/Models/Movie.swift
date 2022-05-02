@@ -11,12 +11,10 @@ struct Movies: Codable {
     var poster_path: String
     var title: String
     var overview: String
-    var vote_average: Int
-    var total_pages: Int
-    var query: String
+    var vote_average: Float
 }
 
 struct MoviesResponse: Decodable {
-    let page: Int
+    let total_pages: Int
     let results: [Movies]
 }
