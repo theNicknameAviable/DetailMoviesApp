@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -19,7 +20,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         registerTableViewCells()
         movieTable.dataSource = self
         movieTable.delegate = self
-        movieTable.estimatedRowHeight = 131
+        movieTable.estimatedRowHeight = 150
         searchBar.delegate = self
         viewModel.updateList = {
             self.movieTable.reloadData()
@@ -38,7 +39,12 @@ extension MovieListVC {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell
         cell?.title.text = "\(viewModel.movieList[indexPath.row].title)"
-        //cell?.filmPoster.image = UIImage
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieList[indexPath.row].poster_path)") {
+            cell?.filmPoster.af.setImage(withURL: url)
+        } else {
+            cell?.filmPoster.image = UIImage(named: "blackImage")
+        }
+        
         cell?.filmDescription.text = "\(viewModel.movieList[indexPath.row].overview)"
         cell?.voteAverage.text = "\(viewModel.movieList[indexPath.row].vote_average)"
         return cell ?? UITableViewCell()
