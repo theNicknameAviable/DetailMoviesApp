@@ -39,7 +39,9 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 extension MovieListVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.movieList.count
+        let numberOfRows = viewModel.movieList.count
+        let tableviewPagiantorLoadeMoreCells = (tableviewPaginator?.rowsIn( section : section) ??  0 )
+        return numberOfRows + tableviewPagiantorLoadeMoreCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
