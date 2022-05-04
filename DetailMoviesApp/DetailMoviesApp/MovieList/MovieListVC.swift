@@ -7,12 +7,15 @@
 
 import UIKit
 import AlamofireImage
+import TableviewPaginator
 
 class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var movieTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     let viewModel = ViewModelMovieList()
+    private var tableviewPaginator: TableviewPaginator?
+    
 
 
     override func viewDidLoad() {
@@ -25,6 +28,8 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         viewModel.updateList = {
             self.movieTable.reloadData()
         }
+        tableviewPaginator = TableviewPaginator.init(paginatorUI: self, delegate: self)
+        tableviewPaginator?.initialSetup()
     }
 }
 
@@ -91,6 +96,37 @@ extension MovieListVC {
         detailViewController.overview = film.overview
         detailViewController.vote_average = "\(film.vote_average)"
         present(detailViewController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - TableViewPaginator Methods
+
+extension MovieListVC: TableviewPaginatorUIProtocol {
+    
+    func getTableview(paginator: TableviewPaginator) -> UITableView {
+        return yourTableview
+    }
+
+    func shouldAddRefreshControl(paginator: TableviewPaginator) -> Bool {
+        return true
+    }
+
+    func getPaginatedLoadMoreCellHeight(paginator: TableviewPaginator) -> CGFloat {
+        return 44
+    }
+
+    func getPaginatedLoadMoreCell(paginator: TableviewPaginator) -> UITableViewCell {
+        if let cell = yourTableview.dequeueReusableCell(withIdentifier: "YOUR_LOAD_MORE_CELL_IDENTIFIER") as? YourLoadMoreCell {
+            // customize your load more cell
+            // i.e start animating the UIActivityIndicator inside of the cell
+            return cell
+        } else {
+            return UITableViewCell.init()
+        }
+    }
+
+    func getRefreshControlTintColor(paginator: TableviewPaginator) -> UIColor {
+        return yourColorOfChoice
     }
 }
 
