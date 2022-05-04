@@ -45,6 +45,10 @@ extension MovieListVC {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableviewPaginator?.cellForLoadMore(at: indexPath) {
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell
         cell?.title.text = "\(viewModel.movieList[indexPath.row].title)"
         if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieList[indexPath.row].poster_path)") {
