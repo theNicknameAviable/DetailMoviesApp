@@ -49,7 +49,6 @@ extension MovieListVC {
         } else {
             cell?.filmPoster.image = UIImage(named: "blackImage")
         }
-        
         cell?.filmDescription.text = "\(viewModel.movieList[indexPath.row].overview)"
         cell?.voteAverage.text = "\(viewModel.movieList[indexPath.row].vote_average)"
         return cell ?? UITableViewCell()
@@ -99,7 +98,7 @@ extension MovieListVC {
     }
 }
 
-// MARK: - TableViewPaginator Methods
+// MARK: - TableViewPaginator Methods (View)
 
 extension MovieListVC: TableviewPaginatorUIProtocol {
     
@@ -117,8 +116,6 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
 
     func getPaginatedLoadMoreCell(paginator: TableviewPaginator) -> UITableViewCell {
         if let cell = movieTable.dequeueReusableCell(withIdentifier: "LoadMoreCell") as? LoadMoreCell {
-            // customize your load more cell
-            // i.e start animating the UIActivityIndicator inside of the cell
             return cell
         } else {
             return UITableViewCell.init()
@@ -126,7 +123,16 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
     }
 
     func getRefreshControlTintColor(paginator: TableviewPaginator) -> UIColor {
-        return yourColorOfChoice
+        return .black
     }
 }
 
+
+// MARK: - TableViewPaginator Methods (Control)
+
+extension  MovieListVC : TableviewPaginatorProtocol {
+    
+    func loadPaginatedData(offset: Int, shouldAppend: Bool, paginator: TableviewPaginator) {
+        viewModel.searchMovie(query: "page") //(offset: offset, limit: yourDataFetchLimit, shouldAppend: shouldAppend)
+    }
+}

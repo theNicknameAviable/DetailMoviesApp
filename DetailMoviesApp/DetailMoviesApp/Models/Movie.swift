@@ -12,6 +12,7 @@ struct Movies: Codable {
     var title: String
     var overview: String
     var vote_average: Float
+    var page: Int
 }
 
 struct MoviesResponse: Decodable {
