@@ -2,20 +2,24 @@ PODS:
   - Alamofire (5.4.4)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
+  - TableviewPaginator (0.3.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.3)
   - AlamofireImage (~> 4.1)
+  - TableviewPaginator
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - TableviewPaginator
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  TableviewPaginator: 859ed37168087db8ec937a7970f1270ae89429f0
 
-PODFILE CHECKSUM: 7da9d99c96ae2e9d79aa370794488a1c091c165d
+PODFILE CHECKSUM: 66cc77e0a4d764c670e807810fc6d610c058f01f
 
 COCOAPODS: 1.11.2

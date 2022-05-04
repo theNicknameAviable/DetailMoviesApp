@@ -8,6 +8,7 @@ target 'DetailMoviesApp' do
 
  pod 'Alamofire', '~> 5.4.3'
  pod 'AlamofireImage', '~> 4.1'
+ pod 'TableviewPaginator'
 
 
 end
