@@ -31,6 +31,7 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableviewPaginator = TableviewPaginator.init(paginatorUI: self, delegate: self)
         tableviewPaginator?.initialSetup()
     }
+
 }
 
 //MARK: - Table Methods.
@@ -132,8 +133,12 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
     func getRefreshControlTintColor(paginator: TableviewPaginator) -> UIColor {
         return .black
     }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+          tableviewPaginator?.scrollViewDidScroll(scrollView)
+      }
 }
-
 
 // MARK: - TableViewPaginator Methods (Control)
 
