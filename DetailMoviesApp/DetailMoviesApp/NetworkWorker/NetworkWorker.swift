@@ -12,8 +12,8 @@ class NetworkWorker {
     
     static let apiKey = "cd342d8312c81508538c19fdf63cc308"
     
-    func searchMovie(query: String, completionBlock: @escaping (([Movies]) -> Void)) {
-        let url = "https://api.themoviedb.org/3/search/movie?api_key=\(NetworkWorker.apiKey)&language=en-US&page=1&include_adult=false&query=\(query)"
+    func searchMovie(query: String, offset: Int, completionBlock: @escaping (([Movies]) -> Void)) {
+        let url = "https://api.themoviedb.org/3/search/movie?api_key=\(NetworkWorker.apiKey)&language=en-US&page=\(offset)&include_adult=false&query=\(query)"
         AF.request(url).responseDecodable(of: MoviesResponse.self) { response in
             let movies = try? response.result.get().results
             completionBlock(movies ?? [])

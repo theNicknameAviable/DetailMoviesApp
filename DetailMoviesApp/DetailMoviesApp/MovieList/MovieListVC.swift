@@ -40,7 +40,10 @@ extension MovieListVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = viewModel.movieList.count
-        let tableviewPagiantorLoadeMoreCells = (tableviewPaginator?.rowsIn( section : section) ??  0 )
+        if numberOfRows == 0 {
+            return 0
+        }
+        let tableviewPagiantorLoadeMoreCells = (tableviewPaginator?.rowsIn(section : section) ?? 0)
         return numberOfRows + tableviewPagiantorLoadeMoreCells
     }
     
@@ -63,7 +66,9 @@ extension MovieListVC {
     
     func registerTableViewCells() {
         let textFieldCell = UINib(nibName: "MovieCell", bundle: nil)
+        let textFieldCell2 = UINib(nibName: "LoadMoreCell", bundle: nil)
         movieTable.register(textFieldCell, forCellReuseIdentifier: "MovieCell")
+        movieTable.register(textFieldCell2, forCellReuseIdentifier: "LoadMoreCell")
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -94,7 +99,7 @@ extension MovieListVC {
 extension MovieListVC {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.searchMovie(query: searchText)
+        viewModel.searchMovie(query: searchText, offset: 1)
     }
 }
 
@@ -137,7 +142,7 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
     }
 
     func getRefreshControlTintColor(paginator: TableviewPaginator) -> UIColor {
-        return .black
+        return .yellow
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -148,9 +153,9 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
 // MARK: - TableViewPaginator Methods (Control)
 
 extension  MovieListVC : TableviewPaginatorProtocol {
-    
+
     func loadPaginatedData(offset: Int, shouldAppend: Bool, paginator: TableviewPaginator) {
-        viewModel.searchMovie(query: "page") //(offset: offset, limit: yourDataFetchLimit, shouldAppend: shouldAppend)
+        viewModel.searchMovie(query: searchBar.text ?? "Not Found", offset: offset)
     }
     
     func dataFetched(success: Bool, dataCount: Int) {

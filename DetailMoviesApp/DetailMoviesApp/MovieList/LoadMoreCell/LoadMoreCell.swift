@@ -21,7 +21,7 @@ class LoadMoreCell: UITableViewCell {
         loadMore.textColor = .black
         loadMore.font = UIFont.systemFont(ofSize: 20)
         loadMore.text = "Load More"
-        backgroundColor = .white
+        backgroundColor = .yellow
     }
     
 }
