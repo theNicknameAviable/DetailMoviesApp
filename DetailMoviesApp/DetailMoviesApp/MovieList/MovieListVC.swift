@@ -104,19 +104,19 @@ extension MovieListVC {
 extension MovieListVC: TableviewPaginatorUIProtocol {
     
     func getTableview(paginator: TableviewPaginator) -> UITableView {
-        return yourTableview
+        return movieTable
     }
 
     func shouldAddRefreshControl(paginator: TableviewPaginator) -> Bool {
-        return true
+        return false
     }
 
     func getPaginatedLoadMoreCellHeight(paginator: TableviewPaginator) -> CGFloat {
-        return 44
+        return 150
     }
 
     func getPaginatedLoadMoreCell(paginator: TableviewPaginator) -> UITableViewCell {
-        if let cell = yourTableview.dequeueReusableCell(withIdentifier: "YOUR_LOAD_MORE_CELL_IDENTIFIER") as? YourLoadMoreCell {
+        if let cell = movieTable.dequeueReusableCell(withIdentifier: "YOUR_LOAD_MORE_CELL_IDENTIFIER") as? YourLoadMoreCell {
             // customize your load more cell
             // i.e start animating the UIActivityIndicator inside of the cell
             return cell
