@@ -73,6 +73,13 @@ extension MovieListVC {
         showMovieDetail(film: film)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let height = tableviewPaginator?.heightForLoadMore(cell: indexPath) {
+            return height
+        }
+        return 150
+    }
+    
 }
 
 //MARK: - SearchBar Methods
