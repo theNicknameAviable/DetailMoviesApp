@@ -140,7 +140,6 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
         return .black
     }
     
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
           tableviewPaginator?.scrollViewDidScroll(scrollView)
       }
@@ -153,4 +152,12 @@ extension  MovieListVC : TableviewPaginatorProtocol {
     func loadPaginatedData(offset: Int, shouldAppend: Bool, paginator: TableviewPaginator) {
         viewModel.searchMovie(query: "page") //(offset: offset, limit: yourDataFetchLimit, shouldAppend: shouldAppend)
     }
+    
+    func dataFetched(success: Bool, dataCount: Int) {
+            if success {
+                tableviewPaginator?.incrementOffsetBy(delta: viewModel.movieList.count)
+            }
+            tableviewPaginator?.partialDataFetchingDone()
+            movieTable.reloadData()
+        }
 }
