@@ -19,8 +19,12 @@ class ViewModelMovieList {
     
     func searchMovie(query: String, offset: Int){
         networker.searchMovie(query: query, offset: offset) { results in
-            self.movieList = results
+            self.movieList.append(contentsOf: results)
             self.updateList?()
         }
+    }
+    
+    func resetSearch() {
+        self.movieList.removeAll()
     }
 }

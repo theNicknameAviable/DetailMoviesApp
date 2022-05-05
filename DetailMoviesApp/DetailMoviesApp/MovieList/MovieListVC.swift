@@ -26,6 +26,8 @@ class MovieListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         movieTable.estimatedRowHeight = 150
         searchBar.delegate = self
         viewModel.updateList = {
+            self.tableviewPaginator?.incrementOffsetBy(delta: 1)
+            self.tableviewPaginator?.partialDataFetchingDone()
             self.movieTable.reloadData()
         }
         tableviewPaginator = TableviewPaginator.init(paginatorUI: self, delegate: self)
@@ -65,10 +67,10 @@ extension MovieListVC {
     }
     
     func registerTableViewCells() {
-        let textFieldCell = UINib(nibName: "MovieCell", bundle: nil)
-        let textFieldCell2 = UINib(nibName: "LoadMoreCell", bundle: nil)
-        movieTable.register(textFieldCell, forCellReuseIdentifier: "MovieCell")
-        movieTable.register(textFieldCell2, forCellReuseIdentifier: "LoadMoreCell")
+        let movieCell = UINib(nibName: "MovieCell", bundle: nil)
+        let loadMoreCell = UINib(nibName: "LoadMoreCell", bundle: nil)
+        movieTable.register(movieCell, forCellReuseIdentifier: "MovieCell")
+        movieTable.register(loadMoreCell, forCellReuseIdentifier: "LoadMoreCell")
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -99,6 +101,7 @@ extension MovieListVC {
 extension MovieListVC {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.resetSearch()
         viewModel.searchMovie(query: searchText, offset: 1)
     }
 }
@@ -155,14 +158,7 @@ extension MovieListVC: TableviewPaginatorUIProtocol {
 extension  MovieListVC : TableviewPaginatorProtocol {
 
     func loadPaginatedData(offset: Int, shouldAppend: Bool, paginator: TableviewPaginator) {
-        viewModel.searchMovie(query: searchBar.text ?? "Not Found", offset: offset)
+        viewModel.searchMovie(query: searchBar.text ?? "", offset: offset)
     }
     
-    func dataFetched(success: Bool, dataCount: Int) {
-            if success {
-                tableviewPaginator?.incrementOffsetBy(delta: viewModel.movieList.count)
-            }
-            tableviewPaginator?.partialDataFetchingDone()
-            movieTable.reloadData()
-        }
 }
